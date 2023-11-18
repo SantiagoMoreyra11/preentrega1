@@ -1,11 +1,30 @@
-const Items = ({ greeting }) => {
-  const greetingStyles = {
-    fontSize: "2rem",
-    fontWeight: "700",
-    textAlign: "center",
-    color: "Black",
-  };
-  return <div style={greetingStyles}>{greeting}</div>;
+import React from "react";
+import { Card } from "react-bootstrap";
+
+const Items = ({ products }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        width: "100vw",
+        justifyContent: "space-around",
+      }}
+    >
+      {products.map((product) => {
+        return (
+          <Card key={product.id} style={{ width: "18rem", margin: 20 }}>
+            <Card.Img variant="top" src={product.thumbnail} />
+
+            <Card.Body>
+              <Card.Title>{product.title}</Card.Title>
+              <Card.Text>{product.description}</Card.Text>
+            </Card.Body>
+          </Card>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Items;

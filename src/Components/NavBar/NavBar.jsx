@@ -1,52 +1,34 @@
-import React from "react";
-import Carrito from "../Carrito/Carrito";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Carrito from '../Carrito/Carrito'
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-white">
-      <div className="container">
-        <img src="/img/descarga.png" alt="logo" style={{ width: "100px" }} />
-        <a className="navbar-brand" href="#">
-          Armory
-        </a>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <Carrito />
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto ">
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Inicio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Acerca de
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Servicios
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contacto
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <Navbar variant="light" expand="lg" className="bg-light">
+      <Container>
+        <Navbar.Brand>
+          <Link to={"/"}>Ardidas</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto ">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">YouPhone</Nav.Link>
+            <NavDropdown title="Categories" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Charger</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Phone Case</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Headphones</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Accesories</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Carrito />
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
+
 export default NavBar;
