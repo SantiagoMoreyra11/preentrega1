@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import Items from "../Components/Items/Items";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const Home = () => {
+const Category = () => {
   const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products?limit=10")
@@ -13,7 +14,11 @@ const Home = () => {
       })
       .catch((error) => console.log(error));
   }, []);
+
+
+  
+
   return <Items products={products} />;
 };
 
-export default Home;
+export default Category;
