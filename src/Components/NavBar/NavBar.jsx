@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
+
 const NavBar = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {

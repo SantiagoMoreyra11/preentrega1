@@ -8,15 +8,12 @@ const Category = () => {
   const { categoryId } = useParams();
   useEffect(() => {
     axios
-      .get("https://dummyjson.com/products?limit=10")
+      .get(`https://dummyjson.com/products/category/${categoryId}`)
       .then((res) => {
         setProducts(res.data.products);
       })
       .catch((error) => console.log(error));
-  }, []);
-
-
-  
+  }, [categoryId]);
 
   return <Items products={products} />;
 };
